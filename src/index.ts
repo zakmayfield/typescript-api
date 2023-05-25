@@ -5,7 +5,7 @@ import { userRouter } from './routes/user/user.router.js';
 import { postRouter } from './routes/post/post.router.js';
 import { authRouter } from './routes/auth/auth.router.js';
 import { PORT } from './shared/constants.js';
-import { authenticateToken } from './middleware/authMiddleware.js';
+import { authenticateToken } from './middleware/auth.middleware.js';
 
 dotenv.config();
 
