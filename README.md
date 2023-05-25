@@ -1,4 +1,6 @@
-# Express | TypeScript | Prisma | Postgres
+# Express & TypeScript Server
+
+## Express | TypeScript | Prisma | Postgres
 
 A sandbox API for me to practice server side development.
 
@@ -13,4 +15,3 @@ A sandbox API for me to practice server side development.
   - I didn't want to write SQL, and wanted more productivity so choosing Prisma felt right.
 - Postgres
   - I have a preference to working with relational databases, so I chose Postgres for my database.
-
