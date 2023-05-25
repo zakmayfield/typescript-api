@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../../shared/constants.js';
 import { checkUsername, generateToken, registerUser } from './auth.service.js';
 
+// register a new user
 export const register = async (req: Request, res: Response) => {
   if (!req.body || !req.body.username || !req.body.password) {
     return res.status(400).send('invalid input');
@@ -11,6 +12,7 @@ export const register = async (req: Request, res: Response) => {
 
   const { username, password } = req.body;
 
+  // validate unique username input
   const usernameExists = await checkUsername(username);
 
   if (usernameExists) {
@@ -18,9 +20,11 @@ export const register = async (req: Request, res: Response) => {
   }
 
   try {
+    // password hash
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await registerUser({ username, password: hashedPassword });
-    const token = jwt.sign({ username }, JWT_SECRET);
+    // generate token
+    const token = generateToken(username);
     return res.json({ user, token });
   } catch (e) {
     console.log(e);
@@ -28,6 +32,7 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
+// login an existing user
 export const login = async (req: Request, res: Response) => {
   if (!req.body || !req.body.username || !req.body.password) {
     return res.status(400).send('invalid input');

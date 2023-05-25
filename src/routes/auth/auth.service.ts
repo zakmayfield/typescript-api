@@ -1,5 +1,4 @@
 import { db } from '../../utils/db.server.js';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '../../shared/constants.js';
 
