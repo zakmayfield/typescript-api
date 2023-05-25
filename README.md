@@ -1,4 +1,4 @@
-# Express & TypeScript Server
+# Express TypeScript Server & API
 
 ## Express | TypeScript | Prisma | Postgres
 
