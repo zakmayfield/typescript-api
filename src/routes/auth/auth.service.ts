@@ -1,4 +1,7 @@
 import { db } from '../../utils/db.server.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '../../shared/constants.js';
 
 export const registerUser = async (body: {
   username: string;
@@ -20,4 +23,8 @@ export const checkUsername = async (username: string) => {
       username,
     },
   });
+};
+
+export const generateToken = async (username: string) => {
+  return jwt.sign({ username }, JWT_SECRET);
 };
